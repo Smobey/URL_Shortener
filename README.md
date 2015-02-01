@@ -9,11 +9,13 @@ The base-36 form of the ID can be used access the URL from thereafter.
 
 The purpose of the application is to turn long URLs into a short form, and to mask them.
 
-IMPORTANT FILES & FOLDERS:
+FUNCTIONALITY:
 
-u.php: The links will be in the form of u.php?u=[short url code].  See additional notes.<br>
-libs/: The core functionality of the program.<br>
-views/: Contains the template for all pages, and the views for pages visible for the user.<br>
+The core functionality of the application can be found in the /libs -folder, specifically the dbaccess.php -file. The following files are important:
+
+shortener.php: The actual user interface for createurl.php to use. The user inputs a URL that gets sent to createurl.php to be stored into the database (if not already there.)
+createurl.php: Takes the URL by POST (via shortener.php), checks its validity (returning the user to shortener.php should the ULR be invalid) and returns the user the full shortened URL for use.
+u.php: Takes the encoded ID of the URL by a GET and redirects the user to the URL the ID represents.
 
 INSTALLATION:
 
