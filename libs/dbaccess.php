@@ -1,5 +1,6 @@
 <?php
 require_once 'libs/dbconnect.php';
+require_once 'libs/common.php';
 
 function createURL($url) // Checks if DB already has the URL; if it does, it returns its ID. If it doesn't, it creates a database entry and then returns its ID.
 {
@@ -35,4 +36,22 @@ function fetchURL($url) // Fetches the database ID of an URL, returning the data
     $result = $query->fetchObject();
     
     return $result;
+}
+
+function directToURL($id) // Takes the *decoded* ID of an URL as a parameter, and 301 redirects the user to the URL if the ID is valid. If it's not, it gives a 404 error.
+{
+    $ini_array = parse_ini_file("./config.ini");
+    $notfound_page = $ini_array[notfound_page];
+    $url = fetchURL(decodeID($id));
+
+    if ($url == NULL)
+    {
+        header("HTTP/1.1 404 Not Found");
+        include($notfound_page);
+    }
+    else
+    {
+        header("HTTP/1.1 301 Moved Permanently");
+        header("Location: " . $url->URL);
+    }
 }
