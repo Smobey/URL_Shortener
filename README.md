@@ -9,9 +9,9 @@ The base-36 form of the ID can be used access the URL from thereafter.
 
 The purpose of the application is to turn long URLs into a short form, and to mask them.
 
-FUNCTIONALITY:
+PAGES:
 
-The core functionality of the application can be found in the /libs -folder, specifically the dbaccess.php -file. The following files are important:
+The core functionality of the application can be found in the /libs -folder, specifically the dbaccess.php -file. Check its comments for their usage. The following files are important:
 
 shortener.php: The actual user interface for createurl.php to use. The user inputs a URL that gets sent to createurl.php to be stored into the database (if not already there.)
 
