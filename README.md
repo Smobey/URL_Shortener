@@ -19,6 +19,11 @@ createurl.php: Takes the URL by POST (via shortener.php), checks its validity (r
 
 u.php: Takes the encoded ID of the URL by a GET and redirects the user to the URL the ID represents.
 
+API:
+
+u.php: GETs the "u" variable, 301 redirecting to the corresponding URL in database if valid and 404 redirecting to an error page if there isn't one.<br>
+createurl_api.php: Accepts a URL by POST (by the 'shorten' variable), inserts it in the database and gives its encoded ID as plain text if successful. In cases of invalid URLs, it returns an error in plain text. This page is for API purposes only and doesn't get used by the application by default.
+
 INSTALLATION:
 
 1. Install everything to a directory on your web service<br>

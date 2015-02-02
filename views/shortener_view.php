@@ -9,7 +9,7 @@ if ($data->error == 2)
 ?><div class="inputblock">
 	<h2>Please enter a URL to be shortened</h2>
 	<form action="createurl.php" method="POST">
-		<input type="text" type="url" name="url">
+		<input type="text" type="url" name="shorten">
 		<br>
 		<button type="submit">Submit</button>
 	</form>

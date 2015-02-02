@@ -16,10 +16,10 @@ function decodeID($id)
     return base_convert($id, 36, 10);
 }
 
-function formatURL($url)
+function formatURL($url) // MUST be used before the URL is inserted into database.
 {
     $url = trim($url);
-    if(strpos($url, 'http://') === FALSE)
+    if(strpos($url, 'http://') === FALSE && strpos($url, 'https://') === FALSE)
         $url = 'http://' . $url;
-    return $url;
+    return htmlspecialchars($url);
 }
